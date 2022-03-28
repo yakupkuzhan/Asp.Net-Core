@@ -1,0 +1,47 @@
+﻿@model CoreAppFood.Models.Food
+
+@{
+    ViewData["Title"] = "FoodGet";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+<h1>Food Update Page</h1>
+
+
+<br />
+
+@using (Html.BeginForm("FoodUpdate","Food",FormMethod.Post))
+{
+    @Html.Label("Food ID")
+    @Html.TextBoxFor(x => x.FoodId, new {@class = "form-control"})
+    <br />
+
+    @Html.Label("Name")
+    @Html.TextBoxFor(x => x.Name, new {@class = "form-control"})
+    <br />
+
+    @Html.Label("Price")
+    @Html.TextBoxFor(x => x.Price, new {@class = "form-control"})
+    <br />
+
+    @Html.Label("Stock")
+    @Html.TextBoxFor(x => x.Stock, new {@class = "form-control"})
+    <br />
+
+
+    @Html.Label("Image Url")
+    @Html.TextBoxFor(x => x.ImageUrl, new {@class = "form-control"})
+    <br />
+
+    @Html.Label("Description")
+    @Html.TextAreaFor(x => x.Desc , new {@class = "form-control"})
+    <br />
+
+    @Html.Label("Categories")
+    @Html.DropDownListFor(x=> x.CategoryId,(List<SelectListItem>)ViewBag.V1,new {@class = "form-control"})
+    <br />
+
+    <button class="btn btn-warning" style="background-color:blueviolet">Save</button>
+
+    
+}

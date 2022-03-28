@@ -1,0 +1,41 @@
+﻿@model List<CoreAppFood.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+<h1>Category List</h1>
+<br />
+
+@using (Html.BeginForm())
+{
+    <p>
+        Food Name : @Html.TextBox("param")
+        <input type="submit" value="Find" />
+    </p>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Category Name</th>
+        <th>IsDeleted</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+        @foreach (var cData in Model)
+        {
+            <tr>
+                <td>@cData.CategoryId</td>
+                <td>@cData.CategoryName</td>
+                <td>@cData.IsDeleted</td>
+                <td><a href="/Category/CategoryStatus/@cData.CategoryId" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Category/GetCategory/@cData.CategoryId" class="btn btn-success">Update</a></td>
+            </tr>
+        }
+</table>
+
+
+<a href="/Category/CategoryAdd" class="btn btn-primary">New Category</a>

@@ -1,0 +1,39 @@
+﻿@model CoreAppFood.Models.Category
+
+@{
+    ViewData["Title"] = "GetCategory";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+<h1>GetCategory</h1>
+
+<br />
+
+
+@*BeginForm 3 tane paramatre alır. "Action İsmi","Controller İsmi", "Ne zaman çalışacağı"*@
+
+@using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post))
+{
+
+     <!-- ValidationMessageFor ile gerekli alan doldurulmadığında uyarı verir. 3 parametre alır. İlkine gerekli olan alan adı verilir
+     İkincisine Alanın zorunlu olduğunu belirtmek için mesaj yazılır -->
+
+     @Html.Label("CategoryID")
+     @Html.TextBoxFor(x => x.CategoryId, new {@class = "form-control"})
+     <br />
+
+     @Html.LabelFor(x => x.CategoryName)
+     @Html.TextBoxFor(x => x.CategoryName, new {@class = "form-control"})
+     <br />
+
+     @Html.LabelFor(x => x.CategoryDesc)
+     @Html.TextBoxFor(x => x.CategoryDesc, new {@class = "form-control"})
+     <br />
+
+     @Html.Label("IsDeleted")
+     @Html.TextBoxFor(x => x.IsDeleted, new {@class = "form-control"})
+     <br />
+
+     <button href="#" class = "btn btn-warning" style="background-color:orange">Update</button>
+
+}

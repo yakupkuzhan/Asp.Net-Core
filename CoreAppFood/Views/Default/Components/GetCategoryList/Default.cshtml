@@ -1,0 +1,17 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@model IEnumerable<CoreAppFood.Models.Category>
+
+
+<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+    <ul class="nav navbar-nav nav_1">
+        @foreach(var item in Model)
+        {
+            <li><a href="/Default/CategoryDetails/@item.CategoryId">@item.CategoryName</a></li>
+        }
+     </ul>
+</div>

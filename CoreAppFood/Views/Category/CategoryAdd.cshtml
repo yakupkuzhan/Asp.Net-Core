@@ -1,0 +1,34 @@
+﻿@model CoreAppFood.Models.Category
+
+@{
+    ViewData["Title"] = "CategoryAdd";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+<h1>Category Adding Page</h1>
+<br />
+
+
+@*BeginForm 3 tane paramatre alır. "Action İsmi","Controller İsmi", "Ne zaman çalışacağı"*@
+
+@using (Html.BeginForm("CategoryAdd", "Category", FormMethod.Post))
+{
+
+     <!-- ValidationMessageFor ile gerekli alan doldurulmadığında uyarı verir. 3 parametre alır. İlkine gerekli olan alan adı verilir
+     İkincisine Alanın zorunlu olduğunu belirtmek için mesaj yazılır -->
+
+     @Html.LabelFor(x => x.CategoryName)
+     @Html.TextBoxFor(x => x.CategoryName, new {@class = "form-control"})
+     @Html.ValidationMessageFor(x => x.CategoryName,"",new {@style="color:red"})
+     <br />
+
+     @Html.LabelFor(x => x.CategoryDesc)
+     @Html.TextBoxFor(x => x.CategoryDesc, new {@class = "form-control"})
+     <br />
+
+     <button class = "btn btn-info">Save</button>
+}
+
+
+
+
